@@ -1,0 +1,20 @@
+server:
+  port: 5051
+
+spring:
+  application:
+    name: ItemsWebService
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/Alphashop
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        strategy: org.hibernate.cfg.DefaultNamingStrategy
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
