@@ -1,4 +1,4 @@
-package com.weapp.service.items.entity;
+package com.weapp.service.products.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
@@ -9,23 +9,26 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Set;
 
-@Entity
-@Table(name = "famassort", schema = "myschema")
+@Entity(name = "Iva")
+@Table(name = "iva", schema = "myschema")
 @Data
-public class FamilyAssortment implements Serializable {
+public class Iva implements Serializable {
 
     private static final long serialVersionUID = 6204582344429199389L;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "idiva")
     private BigInteger id;
 
     @Column(name = "descrizione")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "familyAssortment")
+    @Column(name = "aliquota")
+    private BigInteger rate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "iva")
     @EqualsAndHashCode.Exclude
     @JsonBackReference
-    private Set<Items> items;
+    private Set<Products> products;
 
 }

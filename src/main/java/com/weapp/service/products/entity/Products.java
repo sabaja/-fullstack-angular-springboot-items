@@ -1,4 +1,4 @@
-package com.weapp.service.items.entity;
+package com.weapp.service.products.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
@@ -11,10 +11,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Entity(name = "Items")
+@Entity(name = "Products")
 @Table(name = "articoli", schema = "myschema")
 @Data
-public class Items implements Serializable {
+public class Products implements Serializable {
     private static final long serialVersionUID = 353670367213236166L;
 
     @Id
@@ -42,13 +42,13 @@ public class Items implements Serializable {
     @Column(name = "datacreazione")
     private LocalDate creationDate;
 
-    @OneToMany(mappedBy = "items", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "products", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.SUBSELECT)
     @EqualsAndHashCode.Exclude
     @JsonManagedReference
     private Set<Barcode> barcodes;
 
-    @OneToOne(mappedBy = "items", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "products", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Ingredients ingredients;
 
     @ManyToOne(fetch = FetchType.LAZY)

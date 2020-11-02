@@ -1,8 +1,8 @@
-package com.weapp.service.items.repository;
+package com.weapp.service.products.repository;
 
-import com.weapp.service.items.Application;
-import com.weapp.service.items.entity.Items;
-import com.weapp.service.items.service.ItemsService;
+import com.weapp.service.products.Application;
+import com.weapp.service.products.entity.Products;
+import com.weapp.service.products.service.ProductsService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,32 +19,32 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = Application.class)
 @SpringBootTest
-class ItemsRepositoryTest {
+class ProductsRepositoryTest {
 
     @Autowired
-    private ItemsRepository itemsRepository;
+    private ProductsRepository productsRepository;
     @Autowired
-    private ItemsService itemsService;
+    private ProductsService productsService;
 
     @Test
     void findByDescriptionSqlLike_shouldExecute() {
-        List<Items> items = itemsRepository.selByDescriptionLike("ACQUA ULIVETO");
-        assertThat(items).size().isEqualTo(2);
+        List<Products> products = productsRepository.selByDescriptionLike("ACQUA ULIVETO");
+        assertThat(products).size().isEqualTo(2);
     }
 
     @Test
     void findByDescriptionLike_shouldExecute() {
-        final List<Items> items = itemsRepository.findByDescriptionLike("ACQUA%", PageRequest.of(0, 10));
-        assertThat(items).size().isEqualTo(10);
+        final List<Products> products = productsRepository.findByDescriptionLike("ACQUA%", PageRequest.of(0, 10));
+        assertThat(products).size().isEqualTo(10);
     }
 
     @Test
     void findById_shouldExecute() {
-        Items item = itemsService.findItemsById("7999182");
+        Products item = productsService.findProductsById("7999182");
         assertThat(item).isNotNull();
         assertThat(item.getDescription()).isEqualTo("GHIACCIO 2LT IS MORI");
 
-        Items item2 = itemsService.findItemsById("79991823");
+        Products item2 = productsService.findProductsById("79991823");
         assertThat(item2).isNotNull();
         assertThat(item2.getDescription()).isNull();
     }

@@ -1,4 +1,4 @@
-package com.weapp.service.items.entity;
+package com.weapp.service.products.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -23,6 +23,6 @@ public class Ingredients implements Serializable {
     @OneToOne
     @PrimaryKeyJoinColumn
     @JsonIgnore
-    private Items items;
+    private Products products;
 
 }

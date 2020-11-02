@@ -1,4 +1,4 @@
-package com.weapp.service.items.entity;
+package com.weapp.service.products.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
@@ -25,6 +25,6 @@ public class Barcode implements Serializable {
     @JoinColumn(name = "CODART", referencedColumnName = "id")
     @EqualsAndHashCode.Exclude
     @JsonBackReference
-    private Items items;
+    private Products products;
 
 }

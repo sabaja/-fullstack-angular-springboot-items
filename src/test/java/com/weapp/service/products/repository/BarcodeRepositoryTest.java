@@ -1,7 +1,7 @@
-package com.weapp.service.items.repository;
+package com.weapp.service.products.repository;
 
-import com.weapp.service.items.Application;
-import com.weapp.service.items.entity.Barcode;
+import com.weapp.service.products.Application;
+import com.weapp.service.products.entity.Barcode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class BarcodeRepositoryTest {
 
-    private final String ITEMS_ID = "002560001";
+    private final String products_ID = "002560001";
     @Autowired
     private BarcodeRepository barcodeRepository;
 
@@ -27,8 +27,8 @@ public class BarcodeRepositoryTest {
         final Optional<Barcode> optionalBarcode = barcodeRepository.findById("0000099200992");
         assertThat(optionalBarcode).isNotNull();
         optionalBarcode
-                .map(Barcode::getItems)
-                .ifPresent(items -> assertThat(ITEMS_ID).isEqualTo(items.getId()));
+                .map(Barcode::getProducts)
+                .ifPresent(products -> assertThat(products_ID).isEqualTo(products.getId()));
 
     }
 }

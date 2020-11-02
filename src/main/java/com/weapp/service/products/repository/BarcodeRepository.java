@@ -1,6 +1,6 @@
-package com.weapp.service.items.repository;
+package com.weapp.service.products.repository;
 
-import com.weapp.service.items.entity.Barcode;
+import com.weapp.service.products.entity.Barcode;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
