@@ -28,12 +28,11 @@ public class ProductsServiceImpl implements ProductsService {
 
     @Override
     public Products findProductsById(String id) {
-        Products products = new Products();
         if (Objects.nonNull(id) && isParsableAndGreaterThanZero(id)) {
-            final Optional<Products> item = productsRepository.findById(id);
-            return item.orElseGet(Products::new);
+            final Optional<Products> product = productsRepository.findById(id);
+            return product.orElse(null);
         }
-        return products;
+        return null;
     }
 
     @Override

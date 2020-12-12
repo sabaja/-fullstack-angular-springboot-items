@@ -19,7 +19,7 @@ public class Barcode implements Serializable {
     private String id;
 
     @Column(name = "idtipoart")
-    private String itemTypeId;
+    private String productTypeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CODART", referencedColumnName = "id")

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ItemsWebService
+    name: ProductsWebService
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5433/Alphashop

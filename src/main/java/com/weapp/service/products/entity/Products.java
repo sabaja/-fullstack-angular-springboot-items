@@ -37,7 +37,7 @@ public class Products implements Serializable {
     private Double netWeight;
 
     @Column(name = "idstatoart", columnDefinition = "CHAR")
-    private Character stateItemId;
+    private Character stateproductId;
 
     @Column(name = "datacreazione")
     private LocalDate creationDate;

@@ -40,12 +40,12 @@ class ProductsRepositoryTest {
 
     @Test
     void findById_shouldExecute() {
-        Products item = productsService.findProductsById("7999182");
-        assertThat(item).isNotNull();
-        assertThat(item.getDescription()).isEqualTo("GHIACCIO 2LT IS MORI");
+        Products product = productsService.findProductsById("7999182");
+        assertThat(product).isNotNull();
+        assertThat(product.getDescription()).isEqualTo("GHIACCIO 2LT IS MORI");
 
-        Products item2 = productsService.findProductsById("79991823");
-        assertThat(item2).isNotNull();
-        assertThat(item2.getDescription()).isNull();
+        Products product2 = productsService.findProductsById("79991823");
+        assertThat(product2).isNull();
     }
+
 }
